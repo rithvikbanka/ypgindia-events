@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Ganesh Chaturthi Celebration</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chai Pe Charcha · YPG India</title>
   <style>
     :root {
       --blue: #0166FF;
@@ -32,6 +26,7 @@
       width: 100%;
       height: 100%;
       margin: 0;
+      overflow: hidden;
     }
 
     body {
@@ -43,209 +38,121 @@
         Roboto,
         Arial,
         sans-serif;
-
       background: var(--bg);
       color: var(--ink);
-
-      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .screen {
       width: 100vw;
       height: 100vh;
-
-      min-height: 600px;
-
+      min-height: 100vh;
+      overflow: hidden;
       display: grid;
-      grid-template-columns: 52% 48%;
-
+      grid-template-columns: 58% 42%;
       background: var(--white);
     }
 
-    /* =====================================================
-       LEFT SIDE
-    ===================================================== */
+    .left,
+    .right {
+      min-width: 0;
+      min-height: 0;
+    }
+
+    /* LEFT */
 
     .left {
       position: relative;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
-
-      padding:
-        7vh 6vw;
-
+      padding: 6.5vh 4.2vw;
       background: var(--white);
-
-      border-right:
-        1px solid var(--border);
+      border-right: 1px solid var(--border);
     }
 
     .eyebrow {
-      margin-bottom: 16px;
-
+      margin: 0 0 clamp(14px, 2vh, 24px);
       color: var(--blue);
-
-      font-size: clamp(13px, 1vw, 18px);
+      font-size: clamp(15px, min(1.15vw, 2.3vh), 22px);
       font-weight: 750;
-
       text-transform: uppercase;
-      letter-spacing: .16em;
+      letter-spacing: 0.16em;
+      line-height: 1.25;
+      white-space: nowrap;
     }
 
     .title {
       margin: 0;
-
-      max-width: 760px;
-
-      font-size: clamp(46px, 5vw, 92px);
-
-      line-height: .98;
-
+      font-size: clamp(60px, min(5.85vw, 11.5vh), 112px);
+      line-height: 0.98;
       font-weight: 750;
-
-      letter-spacing: -.055em;
-
+      letter-spacing: -0.055em;
       color: var(--ink);
+      white-space: nowrap;
     }
 
     .title span {
       color: var(--blue);
     }
 
-    .description {
-      max-width: 650px;
-
-      margin-top: 24px;
-
-      color: var(--muted);
-
-      font-size: clamp(17px, 1.35vw, 25px);
-
-      line-height: 1.5;
-
-      font-weight: 450;
+    .speaker {
+      margin: clamp(22px, 3vh, 36px) 0 0;
+      color: var(--ink);
+      font-size: clamp(18px, min(1.5vw, 3vh), 28px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      white-space: nowrap;
     }
 
-    .event-meta {
-      margin-top: 22px;
-
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 10px;
-    }
-
-    .meta {
-      padding:
-        9px 14px;
-
-      border:
-        1px solid #DCE8FA;
-
-      border-radius: 999px;
-
-      background: var(--soft-blue);
-
-      color: #174EA6;
-
-      font-size: clamp(11px, .8vw, 15px);
-
+    .speaker strong {
       font-weight: 650;
     }
 
-    .registration {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-
-      margin-top: 40px;
-    }
-
-    .qr-wrap {
-      width: clamp(150px, 12vw, 230px);
-      height: clamp(150px, 12vw, 230px);
-
-      padding: 12px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--white);
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 18px;
-
-      box-shadow:
-        0 12px 35px rgba(20, 32, 51, .08);
-    }
-
-    .qr {
-      display: block;
-
-      width: 100%;
-      height: 100%;
-
-      object-fit: contain;
-    }
-
-    .register-copy {
-      max-width: 250px;
-    }
-
-    .register-title {
-      color: var(--ink);
-
-      font-size: clamp(18px, 1.3vw, 26px);
-
-      font-weight: 750;
-    }
-
-    .register-subtitle {
-      margin-top: 6px;
-
+    .role {
+      margin: clamp(6px, 0.9vh, 12px) 0 0;
       color: var(--muted);
-
-      font-size: clamp(12px, .9vw, 17px);
-
-      line-height: 1.45;
+      font-size: clamp(14px, min(1.05vw, 2.1vh), 20px);
+      font-weight: 500;
+      letter-spacing: -0.011em;
+      line-height: 1.35;
+      white-space: nowrap;
     }
 
-    .footer-note {
-      position: absolute;
-
-      left: 6vw;
-      bottom: 28px;
-
-      color: #98A2B3;
-
-      font-size: clamp(10px, .7vw, 14px);
-
-      font-weight: 550;
+    .event-meta {
+      margin-top: clamp(20px, 3vh, 36px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* =====================================================
-       RIGHT SIDE
-    ===================================================== */
+    .meta {
+      padding: 10px 15px;
+      border: 1px solid #DCE8FA;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: #174EA6;
+      font-size: clamp(15px, min(1.12vw, 2.2vh), 20px);
+      font-weight: 650;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* RIGHT */
 
     .right {
       position: relative;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
       overflow: hidden;
-
       background:
         radial-gradient(
-          circle at 50% 48%,
+          circle at 50% 42%,
           #FFFDF8 0%,
-          #FFF8EA 58%,
+          #FFF8EA 56%,
           #FFF1D6 100%
         );
     }
@@ -253,65 +160,38 @@
     .image-frame {
       width: 100%;
       height: 100%;
-
       display: flex;
       align-items: center;
       justify-content: center;
-
-      padding:
-        5vh 4vw;
+      padding: 6vh 1.4vw 2.8vh;
     }
 
-    .ganesha {
+    .mark {
       display: block;
-
       width: 100%;
       height: 100%;
-
-      object-fit: contain;
-
-      filter:
-        drop-shadow(
-          0 25px 45px
-          rgba(99, 67, 22, .14)
-        );
     }
 
     .corner-label {
       position: absolute;
-
-      top: 28px;
-      right: 32px;
-
-      padding:
-        9px 14px;
-
-      border:
-        1px solid rgba(255,255,255,.75);
-
+      z-index: 2;
+      top: 22px;
+      right: 24px;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
       border-radius: 999px;
-
-      background: rgba(255,255,255,.72);
-
+      background: rgba(255, 255, 255, 0.72);
       color: #8A5A16;
-
-      font-size: clamp(10px, .7vw, 14px);
-
+      font-size: clamp(11px, min(0.75vw, 1.5vh), 15px);
       font-weight: 700;
-
-      letter-spacing: .08em;
-
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-
+      line-height: 1.2;
+      white-space: nowrap;
       backdrop-filter: blur(10px);
     }
 
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
     @media (max-width: 900px) {
-
       body {
         overflow: auto;
       }
@@ -319,172 +199,143 @@
       .screen {
         width: 100%;
         height: auto;
-
         min-height: 100vh;
-
+        overflow: visible;
         grid-template-columns: 1fr;
-        grid-template-rows: 55vh 45vh;
-      }
-
-      .left {
-        padding:
-          34px 28px;
-
-        border-right: 0;
-
-        border-bottom:
-          1px solid var(--border);
-      }
-
-      .right {
-        min-height: 45vh;
-      }
-
-      .footer-note {
-        left: 28px;
-        bottom: 16px;
-      }
-
-      .registration {
-        margin-top: 26px;
-      }
-
-      .image-frame {
-        padding:
-          20px 28px 28px;
-      }
-    }
-
-    @media (max-width: 560px) {
-
-      .screen {
         grid-template-rows: auto auto;
       }
 
       .left {
-        min-height: 58vh;
+        padding: 36px 28px 32px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
       }
 
-      .registration {
-        align-items: flex-start;
-        gap: 18px;
+      .eyebrow,
+      .title,
+      .speaker,
+      .role {
+        white-space: normal;
       }
 
-      .qr-wrap {
-        width: 135px;
-        height: 135px;
-
-        padding: 9px;
-      }
-
-      .event-meta {
-        gap: 7px;
-      }
-
-      .meta {
-        font-size: 10px;
+      .title {
+        font-size: clamp(42px, 12vw, 72px);
       }
 
       .right {
-        min-height: 42vh;
+        min-height: 52vh;
+      }
+
+      .image-frame {
+        padding: 56px 24px 28px;
       }
     }
   </style>
 </head>
-
 <body>
-
   <main class="screen">
-
-    <!-- ===================================================
-         LEFT
-    ==================================================== -->
-
     <section class="left">
-
-      <div class="eyebrow">
-        Celebrate • Create • Connect
-      </div>
+      <div class="eyebrow">YPG India presents · Chai Pe Charcha #1</div>
 
       <h1 class="title">
-        Ganesh Chaturthi
-        <br>
-        <span>Celebration</span>
+        Don&rsquo;t put a new<br>
+        <span>engine</span><br>
+        in an old factory.
       </h1>
 
-      <p class="description">
-        Join us for an eco-friendly Ganesha-making activity,
-        festive snacks, and a celebration of tradition together.
-      </p>
+      <div class="speaker">
+        A leadership talk over chai with <strong>Anudeep Muttavarapu</strong>
+      </div>
+
+      <div class="role">Country Head &amp; MD, India · Senior Director, CPS</div>
 
       <div class="event-meta">
-        <div class="meta">
-          Wednesday, September 30
-        </div>
-
-        <div class="meta">
-          3:00 PM onwards
-        </div>
-
-        <div class="meta">
-          New Cafeteria
-        </div>
+        <div class="meta">Wednesday, November 18</div>
+        <div class="meta">3:30 – 4:30 PM</div>
+        <div class="meta">9th Floor, MFAR Building</div>
       </div>
-
-      <div class="registration">
-
-        <div class="qr-wrap">
-
-          <img
-            class="qr"
-            src="https://quickchart.io/qr?text=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1Ck4_9sFD_SmMkgBqMPFtXR7rZcOw4nAvmHX_IIE6Fbk%2Fedit%3Fusp%3Dsharing&size=500&margin=2"
-            alt="QR code to register"
-          >
-
-        </div>
-
-        <div class="register-copy">
-
-          <div class="register-title">
-            Scan to register
-          </div>
-
-          <div class="register-subtitle">
-            Please sign up by Tuesday, September 29 at 12:00 PM.
-          </div>
-
-        </div>
-
-      </div>
-
-      
-
     </section>
-
-
-    <!-- ===================================================
-         RIGHT
-    ==================================================== -->
 
     <section class="right">
-
-      <div class="corner-label">
-        Ganesh Chaturthi 2026
-      </div>
+      <div class="corner-label">Leadership Talk Series</div>
 
       <div class="image-frame">
+        <svg class="mark" viewBox="0 0 640 900" role="img" aria-labelledby="markTitle" preserveAspectRatio="xMidYMid meet">
+          <title id="markTitle">A clay chai cup whose steam curls into a gear</title>
+          <defs>
+            <linearGradient id="clay" gradientUnits="userSpaceOnUse" x1="150" y1="560" x2="500" y2="820">
+              <stop offset="0%" stop-color="#F3C7A6"/>
+              <stop offset="28%" stop-color="#E59A66"/>
+              <stop offset="62%" stop-color="#D47842"/>
+              <stop offset="100%" stop-color="#B2582B"/>
+            </linearGradient>
+            <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F8D8BE"/>
+              <stop offset="48%" stop-color="#E7A06C"/>
+              <stop offset="100%" stop-color="#C56B3A"/>
+            </linearGradient>
+            <radialGradient id="tea" cx="38%" cy="32%" r="72%">
+              <stop offset="0%" stop-color="#F8E7C6"/>
+              <stop offset="34%" stop-color="#E0A15A"/>
+              <stop offset="100%" stop-color="#8A4C22"/>
+            </radialGradient>
+            <linearGradient id="gearFill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4B93FF"/>
+              <stop offset="46%" stop-color="#0166FF"/>
+              <stop offset="100%" stop-color="#0B43A5"/>
+            </linearGradient>
+            <linearGradient id="steam" gradientUnits="userSpaceOnUse" x1="320" y1="590" x2="320" y2="340">
+              <stop offset="0%" stop-color="#D6E6FF" stop-opacity="0"/>
+              <stop offset="16%" stop-color="#C5DAFF" stop-opacity="0.95"/>
+              <stop offset="58%" stop-color="#6EA2FF"/>
+              <stop offset="100%" stop-color="#0166FF"/>
+            </linearGradient>
+            <linearGradient id="steamCore" gradientUnits="userSpaceOnUse" x1="320" y1="585" x2="320" y2="370">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+              <stop offset="20%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+              <stop offset="62%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
 
-        <img
-          class="ganesha"
-          src="https://www.image2url.com/r2/default/files/1790673075848-34a7b639-0963-4ff6-a305-4b276b960319.png"
-          alt="Ganesh Chaturthi celebration"
-        >
+          <circle cx="320" cy="230" r="228" fill="#0166FF" opacity="0.04"/>
+          <circle cx="320" cy="680" r="150" fill="#FFFFFF" opacity="0.3"/>
 
+          <ellipse cx="320" cy="828" rx="118" ry="15" fill="#8A5A16" opacity="0.07"/>
+          <ellipse cx="320" cy="818" rx="96" ry="11" fill="#634316" opacity="0.14"/>
+
+          <path fill="url(#clay)" d="M176 568 C166 632 192 724 240 762 C266 784 292 796 320 798 C348 796 374 784 400 762 C448 724 474 632 464 568 Z"/>
+          <path d="M214 676 Q320 694 426 676" fill="none" stroke="#7A3816" stroke-opacity="0.2" stroke-width="3" stroke-linecap="round"/>
+          <path d="M208 612 C196 668 214 730 248 766" fill="none" stroke="#FFFFFF" stroke-opacity="0.34" stroke-width="9" stroke-linecap="round"/>
+
+          <ellipse cx="320" cy="568" rx="146" ry="32" fill="url(#rim)"/>
+          <ellipse cx="320" cy="574" rx="122" ry="23" fill="#7A4120"/>
+          <ellipse cx="320" cy="578" rx="112" ry="18" fill="url(#tea)"/>
+          <ellipse cx="286" cy="572" rx="36" ry="7" fill="#FFFFFF" opacity="0.34"/>
+
+          <g fill="none" stroke-linecap="round">
+            <path d="M286 572 C210 518 198 466 262 426" stroke="url(#steam)" stroke-width="15"/>
+            <path d="M358 570 C444 522 450 470 386 430" stroke="url(#steam)" stroke-width="13"/>
+            <path d="M318 574 C228 512 246 448 332 406 C404 372 370 346 326 358" stroke="url(#steam)" stroke-width="26"/>
+            <path d="M318 574 C228 512 246 448 332 406 C404 372 370 346 326 358" stroke="url(#steamCore)" stroke-width="8"/>
+          </g>
+
+          <g transform="translate(320 228) scale(1.16) translate(-320 -228)">
+            <path
+              fill="url(#gearFill)"
+              stroke="url(#gearFill)"
+              stroke-width="5"
+              stroke-linejoin="round"
+              fill-rule="evenodd"
+              d="M 295.63 133.08 L 301.90 93.21 L 338.10 93.21 L 344.37 133.08 L 369.89 143.65 L 402.51 119.89 L 428.11 145.49 L 404.35 178.11 L 414.92 203.63 L 454.79 209.90 L 454.79 246.10 L 414.92 252.37 L 404.35 277.89 L 428.11 310.51 L 402.51 336.11 L 369.89 312.35 L 344.37 322.92 L 338.10 362.79 L 301.90 362.79 L 295.63 322.92 L 270.11 312.35 L 237.49 336.11 L 211.89 310.51 L 235.65 277.89 L 225.08 252.37 L 185.21 246.10 L 185.21 209.90 L 225.08 203.63 L 235.65 178.11 L 211.89 145.49 L 237.49 119.89 L 270.11 143.65 Z M 330.73 170.72 a 13.00 13.00 0 1 0 26.00 0 a 13.00 13.00 0 1 0 -26.00 0 Z M 364.28 251.73 a 13.00 13.00 0 1 0 26.00 0 a 13.00 13.00 0 1 0 -26.00 0 Z M 283.27 285.28 a 13.00 13.00 0 1 0 26.00 0 a 13.00 13.00 0 1 0 -26.00 0 Z M 249.72 204.27 a 13.00 13.00 0 1 0 26.00 0 a 13.00 13.00 0 1 0 -26.00 0 Z"
+            />
+            <circle cx="320" cy="228" r="86" fill="none" stroke="#FFFFFF" stroke-opacity="0.28" stroke-width="2.5"/>
+            <circle cx="320" cy="228" r="28" fill="#083E8C"/>
+            <circle cx="320" cy="228" r="10" fill="#FFFFFF"/>
+          </g>
+        </svg>
       </div>
-
     </section>
-
   </main>
-
 </body>
 </html>
